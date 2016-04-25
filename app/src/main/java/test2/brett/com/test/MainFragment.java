@@ -14,7 +14,6 @@ import retrofit.Response;
 import retrofit.Retrofit;
 import test2.brett.com.test.model.APIResponse;
 import test2.brett.com.test.model.News;
-import timber.log.Timber;
 
 /**
  * Created by Brett on 4/25/16.
@@ -59,7 +58,6 @@ public class MainFragment extends Fragment {
                     @Override
                     public void onResponse(Response<APIResponse> response, Retrofit retrofit) {
                         if (response.body() != null) {
-                            Timber.d("got response");
                             ArrayList<News> list = response.body().getResults();
                             updateView(list);
                         }
