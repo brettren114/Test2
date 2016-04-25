@@ -7,8 +7,9 @@
     android:id="@+id/list_item_news">
 
     <TextView android:id="@+id/txtTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_weight="5"
         android:gravity="center_vertical"
         android:textStyle="bold"
         android:textSize="22sp"
@@ -18,8 +19,8 @@
 
     <ImageView
         android:id="@+id/imagePoster"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_weight="5"
         android:scaleType="centerCrop"/>
 </LinearLayout>

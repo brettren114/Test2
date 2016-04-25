@@ -5,13 +5,9 @@ import android.content.Context;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.squareup.okhttp.Interceptor;
 import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.Response;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor;
 
-import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import javax.net.ssl.HostnameVerifier;
@@ -38,27 +34,6 @@ public class APIProvider {
         client.setConnectTimeout(60, TimeUnit.SECONDS);
         client.setReadTimeout(60, TimeUnit.SECONDS);
         client.setWriteTimeout(60, TimeUnit.SECONDS);
-
-        // Add headers
-        client.interceptors().add(new Interceptor() {
-            @Override
-            public Response intercept(Chain chain) throws IOException {
-                Request request = chain.request();
-
-                Request.Builder requestBuilder = request.newBuilder();
-                requestBuilder.addHeader("api-key", "15629235341919a7b4b8b6e9344f9bca:6:72095783");
-
-                request = requestBuilder.build();
-                request = request.newBuilder()
-                        .url(
-                                request.httpUrl()
-                                        .newBuilder()
-                                        .build()
-                        ).build();
-
-                return chain.proceed(request);
-            }
-        });
 
         // Logging
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();

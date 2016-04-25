@@ -8,13 +8,13 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import retrofit.Callback;
 import retrofit.Response;
 import retrofit.Retrofit;
 import test2.brett.com.test.model.APIResponse;
 import test2.brett.com.test.model.News;
+import timber.log.Timber;
 
 /**
  * Created by Brett on 4/25/16.
@@ -23,7 +23,6 @@ public class MainFragment extends Fragment {
 
     private NewsAdapter mNewsAdapter;
     private ListView mListView;
-    private List<News> mNews;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -60,6 +59,7 @@ public class MainFragment extends Fragment {
                     @Override
                     public void onResponse(Response<APIResponse> response, Retrofit retrofit) {
                         if (response.body() != null) {
+                            Timber.d("got response");
                             ArrayList<News> list = response.body().getResults();
                             updateView(list);
                         }
