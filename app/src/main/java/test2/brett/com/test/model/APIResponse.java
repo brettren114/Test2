@@ -1,14 +1,14 @@
 package test2.brett.com.test.model;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Brett on 4/25/16.
  */
 public class APIResponse {
-    ArrayList<News> results;
+    List<News> results;
 
-    public ArrayList<News> getResults(){
+    public List<News> getResults(){
         return results;
     }
 

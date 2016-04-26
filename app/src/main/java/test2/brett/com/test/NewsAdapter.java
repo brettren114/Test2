@@ -52,7 +52,9 @@ public class NewsAdapter extends ArrayAdapter<News> {
 
         News newsItem = news.get(position);
         holder.txtTitle.setText(newsItem.title);
-        Picasso.with(context).load(newsItem.url).into(holder.imgPoster);
+        if(!newsItem.multimedia.isEmpty()){
+            Picasso.with(context).load(newsItem.multimedia.get(0).url).into(holder.imgPoster);
+        }
         return view;
     }
 

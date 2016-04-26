@@ -2,12 +2,14 @@ package test2.brett.com.test;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit.Callback;
 import retrofit.Response;
@@ -58,21 +60,22 @@ public class MainFragment extends Fragment {
                     @Override
                     public void onResponse(Response<APIResponse> response, Retrofit retrofit) {
                         if (response.body() != null) {
-                            ArrayList<News> list = response.body().getResults();
+                            Log.d("test", "got response");
+                            List<News> list = response.body().getResults();
                             updateView(list);
                         }
                     }
 
                     @Override
                     public void onFailure(Throwable t) {
-
+                        Log.e("onFailure", t.toString());
                     }
                 });
 
     }
 
 
-    public void updateView(ArrayList<News> list){
+    public void updateView(List<News> list){
         for (News newsItem : list) {
             mNewsAdapter.add(newsItem);
         }

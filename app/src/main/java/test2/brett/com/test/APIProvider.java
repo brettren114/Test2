@@ -15,6 +15,8 @@ import javax.net.ssl.SSLSession;
 
 import retrofit.GsonConverterFactory;
 import retrofit.Retrofit;
+import test2.brett.com.test.model.News;
+import test2.brett.com.test.model.NewsDeserializer;
 
 /**
  * Created by Brett on 4/25/16.
@@ -43,6 +45,7 @@ public class APIProvider {
 
         Gson gson = new GsonBuilder()
                 .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+                .registerTypeAdapter(News.class, new NewsDeserializer())
                 .create();
 
         retrofit = new Retrofit.Builder()

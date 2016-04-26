@@ -35,6 +35,5 @@ dependencies {
     // Use picasso to handle pics
     compile 'com.squareup.picasso:picasso:2.5.2'
 
-    // Timber for logging
-    compile 'com.jakewharton.timber:timber:4.1.0'
+
 }
